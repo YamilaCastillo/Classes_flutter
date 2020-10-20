@@ -1,4 +1,6 @@
 //crear una clase(objetivo:una ventana principal de tipo statelessWidget)
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -26,6 +28,47 @@ class Home extends StatelessWidget {
               })
         ],
         title: Text("Lazara Yamila"),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text(
+                "Lazara Yamila",
+                style: TextStyle(color: Colors.deepPurple),
+              ),
+              accountEmail: Text(
+                "ycastillo@gmail.com",
+                style: TextStyle(color: Colors.deepPurple),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                image: DecorationImage(
+                  image: AssetImage('assets/images/wall-e.png'),
+                  fit: BoxFit.fill,
+                ),
+              ),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor:
+                    Theme.of(context).platform == TargetPlatform.iOS
+                        ? Colors.blue
+                        : Colors.white,
+                child: Text(
+                  "Y",
+                  style: TextStyle(fontSize: 40.0, color: Colors.deepPurple),
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text("Ttem 1"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+            ListTile(
+              title: Text("Item 2"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+          ],
+        ),
       ),
     );
   }
